@@ -40,7 +40,7 @@ var profile = {
 	layers: {
 		'dojo/dojo': {
 			include: [
-				'dojo/i18n'
+				'dojo/i18n','air/modules/myModule'
 			],
 
 			// By default, the build system will try to include `dojo/main` in the built `dojo/dojo` layer, which adds
