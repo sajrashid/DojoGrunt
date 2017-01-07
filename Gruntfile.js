@@ -2,6 +2,8 @@
 module.exports = function (grunt) {
 	require('load-grunt-tasks')(grunt, [ 'grunt-*', 'intern-geezer' ]);
 	var path = require('path');
+	var LIVERELOAD_PORT = 35729;
+	var lrSnippet = require('connect-livereload')({ port: LIVERELOAD_PORT });
 
 	var stripComments = /<\!--.*?-->/g,
 		collapseWhiteSpace = /\s+/g;
@@ -61,6 +63,36 @@ module.exports = function (grunt) {
 				}
 			}
 		},
+		open: {
+		    cdn: {
+		        path: 'http://localhost:<%= connect.options.port %>/'
+		    },
+		    build: {
+		        path: 'http://localhost:<%= connect.options.port %>/'
+		    }
+		},
+	    //setup watch tasks
+		watch: {
+		    options: {
+		        nospan: true,
+		        livereload: LIVERELOAD_PORT
+		    },
+
+		    source: {
+		        files: ['./src/js/**/*.js'],
+		        tasks: ['jshint']
+		    },
+		    livereload: {
+		        options: {
+		            livereload: LIVERELOAD_PORT
+		        },
+		        files: [
+                  './src/js/**/*.js',
+                  './src/**/*.html',
+                  './src/css/**/*.css'
+		        ]
+		    }
+		},
 		clean: {
 			dist: {
 				files: [{
@@ -71,34 +103,27 @@ module.exports = function (grunt) {
 				}]
 			}
 		},
-		intern: {
-			local: {
-				options: {
-					runType: 'client',
-					config: 'src/air/tests/intern'
-				}
-			},
-			remote: {
-				options: {
-					runType: 'runner',
-					config: 'src/air/tests/intern'
-				}
-			}
-		}
+		processhtml: {
+		    build: {
+		        files: {
+		            'dist/index.html': ['src/index.html']
+		        }
+		    }
+		},
 	});
 
-	grunt.registerTask('default', []);
-	grunt.registerTask('server', function (target) {
-		if (target === 'dist') {
-			return grunt.task.run([
-				'build',
-				'connect:dist:keepalive'
-			]);
-		}
 
-		grunt.task.run([
-			'connect:test:keepalive'
-		]);
+
+
+	grunt.registerTask('default', ['serve'], function (target) {
+	    var trgt = target || 'cdn';
+	    grunt.task.run([
+          'jshint',
+          'connect:' + trgt,
+          'open:' + trgt,
+          'watch'
+	    ]);
+		
 	});
-	grunt.registerTask('build', [ 'clean', 'dojo:dist', 'copy' ]);
+	grunt.registerTask('build', [ 'clean', 'dojo:dist', 'processhtml', 'copy' ]);
 };
