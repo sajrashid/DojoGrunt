@@ -36,13 +36,14 @@ var profile = {
 
 	// Builds can be split into multiple different JavaScript files called "layers". This allows applications to
 	// defer loading large sections of code until they are actually required while still allowing multiple modules to
-	// be compiled into a single file.
+    // be compiled into a single file.
+    // see https://dojotoolkit.org/documentation/tutorials/1.10/build/index.html
+
 	layers: {
 		'dojo/dojo': {
 			include: [
-				'dojo/i18n','air/modules/myModule'
+				'dojo/i18n', 'air/modules/myModule', 'dstore/Memory', 'dgrid/OnDemandGrid'
 			],
-
 			// By default, the build system will try to include `dojo/main` in the built `dojo/dojo` layer, which adds
 			// a bunch of stuff we do not want or need. We want the initial script load to be as small and quick to
 			// load as possible, so we configure it as a custom, bootable base.
