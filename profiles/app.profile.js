@@ -50,7 +50,7 @@ var profile = {
 			include: [
 				'dojo/i18n', 'dstore/Memory', 'dgrid/OnDemandGrid'
 			],
-			targetStylesheet: 'dist/air/resources/main.css',
+			targetStylesheet: 'dist/app/resources/main.css',
 			// By default, the build system will try to include `dojo/main` in the built `dojo/dojo` layer, which adds
 			// a bunch of stuff we do not want or need. We want the initial script load to be as small and quick to
 			// load as possible, so we configure it as a custom, bootable base.
@@ -58,7 +58,7 @@ var profile = {
 			customBase: true
 		},
 		'air/main': {
-		    include: ['air/modules/myModule' ]
+		    include: ['app/modules/myModule' ]
 		}
 
 	    // create another layer for details

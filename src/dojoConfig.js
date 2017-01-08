@@ -12,9 +12,9 @@ var dojoConfig = {
 		'xstyle',
 		'dgrid',
         'dstore',
-		'air'
+		'app'
 	],
-	deps: [ 'air' ],
+	deps: [ 'app' ],
 	callback: function (air) {
 		air.init();
 	}

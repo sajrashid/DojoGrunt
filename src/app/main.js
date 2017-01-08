@@ -1,7 +1,7 @@
 define([
 	'exports'
-], function (air) {
-	air.init = function () {
+], function (app) {
+	app.init = function () {
 		//	summary:
 		//		This function is executed automatically by the loader configuration.
 		//		It will be executed after the page has loaded, the DOM is ready, and all
@@ -9,7 +9,7 @@ define([
 		//		the application; for instance, creating	a page controller or running the
 	    //		Dojo parser.
 
-	    require(['dojo/on', 'air/modules/myModule', 'dstore/Memory', 'dgrid/OnDemandGrid', ],
+	    require(['dojo/on', 'app/modules/myModule', 'dstore/Memory', 'dgrid/OnDemandGrid', ],
             function (on, myMod,  Memory, OnDemandGrid) {
            
 	        // dojo on eevnt example
