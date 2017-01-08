@@ -43,6 +43,8 @@ var profile = {
     // defer loading large sections of code until they are actually required while still allowing multiple modules to
     // be compiled into a single file.
     // see https://dojotoolkit.org/documentation/tutorials/1.10/build/index.html
+    //templates see http://stackoverflow.com/questions/18806677/dojo-build-requesting-already-inlined-templates
+
 	layers: {
 		'dojo/dojo': {
 			include: [
