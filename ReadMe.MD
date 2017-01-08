@@ -2,7 +2,7 @@
 This is a Dojo1.10.3 example, Grunt is used for the build , this was scaffolded using the yeoman generator for Dojo
 
 <b>Dojo Yeoman Generator </b>
-https://github.com/bryanforbes/generator-dojo <i>Warning, using closure or shrinksafe as the compiler option will cause the build to fail use UGLIFY!!!!!!!</i>
+https://github.com/bryanforbes/generator-dojo <i>Warning, using closure or shrinksafe as the compiler option will cause the build to fail use UGLIFY!!!!!!!</i> NB: no idea why this is guessing some node modules are missing.
 
 UPDATED to include Dgrid
 ## Code Example
@@ -17,7 +17,7 @@ To help with Dojo builds, they are painfull!
 
 ## Installation
 
-you need to have node & gulp installed using -g, however all depenent modules & Dojo dependencies are included in the repo
+you need to have node & gulp installed, however all depenent modules & Dojo dependencies are included in the repo
 
 ## License
 
