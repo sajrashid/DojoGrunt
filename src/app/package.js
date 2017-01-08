@@ -21,7 +21,7 @@ var profile = {
 		// are typically binaries (images, etc.) and may be corrupted by the build system if it attempts to process
 		// them and naively assumes they are scripts.
 		copyOnly: function (filename, moduleId) {
-			return (/^air\/resources\//.test(filename) && !/\.css$/.test(filename));
+			return (/^app\/resources\//.test(filename) && !/\.css$/.test(filename));
 		},
 
 		// Files that are AMD modules.
@@ -35,8 +35,8 @@ var profile = {
 		// In this case, we are excluding this package configuration file which is not necessary in a built copy of
 		// the application.
 		miniExclude: function (filename, moduleId) {
-			return (/^air\/tests\//).test(moduleId) || moduleId in {
-				'air/package': 1
+			return (/^app\/tests\//).test(moduleId) || moduleId in {
+				'app/package': 1
 			};
 		}
 	}

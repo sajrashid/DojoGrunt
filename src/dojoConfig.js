@@ -15,7 +15,7 @@ var dojoConfig = {
 		'app'
 	],
 	deps: [ 'app' ],
-	callback: function (air) {
-		air.init();
+	callback: function (app) {
+		app.init();
 	}
 };

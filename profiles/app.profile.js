@@ -57,13 +57,13 @@ var profile = {
 			boot: true,
 			customBase: true
 		},
-		'air/main': {
+		'app/main': {
 		    include: ['app/modules/myModule' ]
 		}
 
 	    // create another layer for details
-        // 'air/details': {
-	    //       include: ['air/modules/details','air/modules/gsr' ]
+        // 'app/details': {
+	    //       include: ['app/modules/details','app/modules/gsr' ]
         // }
 	    // create another layer for editor
 	},
