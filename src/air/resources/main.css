@@ -1,3 +1,7 @@
 @import "../../dijit/themes/claro/claro.css";
 @import "../../dgrid/css/skins/claro.css";
 
+#clickH1{
+    color:red;
+}
+

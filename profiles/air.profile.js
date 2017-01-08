@@ -34,26 +34,36 @@ var profile = {
 	// Since we're using dojoConfig.map to patch dojo/_base/declare, we must build anonymous modules
 	insertAbsMids: 0,
 
-	// Builds can be split into multiple different JavaScript files called "layers". This allows applications to
-	// defer loading large sections of code until they are actually required while still allowing multiple modules to
+    // to combine css see https://www.sitepen.com/blog/2014/07/02/dojo-faq-dynamically-loading-css/
+	plugins: {
+	    "xstyle/css": "xstyle/build/amd-css"
+	},
+
+    // Builds can be split into multiple different JavaScript files called "layers". This allows applications to
+    // defer loading large sections of code until they are actually required while still allowing multiple modules to
     // be compiled into a single file.
     // see https://dojotoolkit.org/documentation/tutorials/1.10/build/index.html
-
 	layers: {
 		'dojo/dojo': {
 			include: [
-				'dojo/i18n', 'air/modules/myModule', 'dstore/Memory', 'dgrid/OnDemandGrid'
+				'dojo/i18n', 'dstore/Memory', 'dgrid/OnDemandGrid'
 			],
+			targetStylesheet: 'dist/air/resources/main.css',
 			// By default, the build system will try to include `dojo/main` in the built `dojo/dojo` layer, which adds
 			// a bunch of stuff we do not want or need. We want the initial script load to be as small and quick to
 			// load as possible, so we configure it as a custom, bootable base.
 			boot: true,
 			customBase: true
 		},
-
 		'air/main': {
-			include: []
+		    include: ['air/modules/myModule' ]
 		}
+
+	    // create another layer for details
+        // 'air/details': {
+	    //       include: ['air/modules/details','air/modules/gsr' ]
+        // }
+	    // create another layer for editor
 	},
 
 	// Providing hints to the build system allows code to be conditionally removed on a more granular level than
