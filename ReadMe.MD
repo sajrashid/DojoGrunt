@@ -9,7 +9,7 @@ UPDATED to include Dgrid, layering (loading in chunks), css can be layered, chec
 
 to buid use grunt build, will create a dist folder, use grunt --verbose for a detailed output, use grunt --force to force deleting previous dist folder
 
-<b>Important, if you add modules, make sure you tell dojo to include them in the bundle(s) or layers are they are known in Dojo,in the profile folder there is app.profile.js file.</b>
+<b>Important, if you add modules, make sure you tell dojo to include them in the bundle(s) or layers are they are known in Dojo, look in the profile folder there is a app.profile.js file which contains examples .</b>
 
 ## Motivation
 
